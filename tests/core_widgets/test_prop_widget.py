@@ -22,7 +22,7 @@ def _assert_equal(a, b):
 
 @pytest.mark.parametrize("dev, prop", dev_props)
 def test_property_widget(dev, prop, qtbot):
-    wdg = PropertyWidget(dev, prop, core=CORE)
+    wdg = PropertyWidget.for_property(dev, prop, core=CORE)
     qtbot.addWidget(wdg)
     if CORE.isPropertyReadOnly(dev, prop) or prop in ("SimulateCrash", "Trigger"):
         return
